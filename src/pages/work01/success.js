@@ -1,3 +1,5 @@
+import { useShoppingCart } from 'use-shopping-cart'
+import { useEffect } from 'react'
 import Layout from '@/components/work01/layout/layout'
 import Container from '@/components/work01/layout/container'
 import Work01App from '@/components/work01/work01app'
@@ -6,6 +8,14 @@ import Grid from '@/components/work01/layout/grid'
 import styles from '@/styles/work01/success.module.css'
 
 export default function Work01Success() {
+	const { clearCart } = useShoppingCart()
+
+	// このページにアクセスしたらカートを空にする処理を実行
+	useEffect(() => {
+		clearCart()
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
+
 	return (
 		<Layout
 			seoTitle={`VEG - ご注文ありがとうございます`}
