@@ -1,0 +1,39 @@
+.message {
+	display: grid;
+	align-content: center;
+	justify-items: center;
+	margin-top: 2em;
+	padding-bottom: 3em;
+	height: 80svh;
+	min-height: 600px;
+	border-radius: 10px;
+	background: var(--gradient);
+	color: white;
+	text-align: center;
+	font-size: 1rem;
+}
+
+.message svg {
+	height: 1.5em;
+}
+
+.message h1 {
+	font-size: clamp(8em, 32vw, 12em);
+	font-weight: 100;
+}
+
+.link {
+	composes: button from '@/components/katakago/layout/layout.module.css';
+	width: 180px;
+	max-width: none;
+	margin-top: 4em;
+	color: #141127;
+	font-size: 0.875em;
+}
+
+.footerLink {
+	margin-top: 0.5em;
+	color: #141127;
+	font-size: 0.875em;
+	text-align: center;
+}
