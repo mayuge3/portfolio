@@ -1,0 +1,39 @@
+.skills ul {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 4em 2em;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+	font-size: 10px;
+	line-height: 1.2;
+}
+
+.skills :where(img, svg) {
+	width: auto;
+	height: 70px;
+	margin-inline: auto;
+	margin-bottom: 1em;
+}
+
+@media (max-width: 1200px) {
+	.skills :where(img, svg) {
+		height: 60px;
+	}
+}
+@media (max-width: 700px) {
+	.skills :where(img, svg) {
+		height: 50px;
+	}
+}
+@media (max-width: 500px) {
+	.skills ul {
+		gap: 1em 0.5em;
+	}
+	.skills :where(img, svg) {
+		height: 30px;
+	}
+	.skills span {
+		display: none;
+	}
+}

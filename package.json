@@ -1,0 +1,35 @@
+{
+	"name": "portfolio",
+	"description": "ポートフォリオサイト",
+	"version": "1.0.0",
+	"homepage": "https://github.com/mayuge3/portfolio",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"eslint": "8.36.0",
+		"eslint-config-next": "13.2.4",
+		"framer-motion": "^10.11.5",
+		"jotai": "^2.0.4",
+		"next": "13.2.4",
+		"next-seo": "^6.0.0",
+		"plaiceholder": "^2.5.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"sharp": "^0.32.0",
+		"stripe": "^12.0.0",
+		"use-shopping-cart": "^3.1.6"
+	},
+	"devDependencies": {
+		"@tailwindcss/typography": "^0.5.9",
+		"autoprefixer": "^10.4.14",
+		"postcss": "^8.4.21",
+		"prettier": "^2.8.7",
+		"prettier-plugin-tailwindcss": "^0.2.7",
+		"tailwindcss": "^3.3.1"
+	}
+}

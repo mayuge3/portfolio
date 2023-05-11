@@ -1,0 +1,16 @@
+.footer {
+	padding-block: 30px;
+}
+
+.logo {
+	display: flex;
+	gap: 1em;
+	align-items: flex-end;
+	font-size: 16px;
+	line-height: 1;
+}
+.logo svg,
+.logo img {
+	display: block;
+	width: 64px;
+}

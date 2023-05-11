@@ -1,0 +1,17 @@
+@layer work.component {
+	.footer {
+		padding-bottom: var(--spacing-112);
+	}
+
+	.footerMenu * {
+		font-size: var(--fontSize-16);
+	}
+	.footerMenu h3 {
+		color: var(--gray-dark);
+		font-weight: 500;
+	}
+
+	.footerInfo {
+		font-size: var(--fontSize-12);
+	}
+}

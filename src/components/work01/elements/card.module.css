@@ -1,0 +1,39 @@
+@layer work.component {
+	.card a {
+		-webkit-tap-highlight-color: transparent;
+	}
+	.card a > * + * {
+		margin-top: var(--spacing-10);
+	}
+	.card figure {
+		border-radius: 10px;
+		aspect-ratio: 1/1;
+		overflow: hidden;
+	}
+	.card figure img {
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 10px;
+		opacity: 0;
+		transition: transform 0.3s ease-in-out, opacity 0.75s ease-in-out;
+	}
+
+	.card figure :global(.opacity1) {
+		opacity: 1;
+	}
+	.card a:hover {
+		opacity: 1;
+	}
+	.card a:hover img {
+		transform: scale(110%);
+	}
+	.card h3 {
+		font-size: var(--fontSize-16-18);
+		font-weight: 500;
+	}
+	.card .text p {
+		font-size: var(--fontSize-14-16);
+	}
+}

@@ -1,0 +1,116 @@
+@layer work.component {
+	.default {
+		position: relative;
+		padding-block: var(--spacing-112);
+	}
+	.default p {
+		max-width: 536px;
+	}
+
+	.linkTarget {
+		position: absolute;
+		top: -50px;
+		width: 0px;
+		height: 0px;
+	}
+}
+
+@layer work.decoration {
+	/* clover */
+	.clover {
+		composes: default;
+		overflow: hidden;
+	}
+	.clover > [class^='container'] {
+		position: relative;
+	}
+	.clover > [class^='container']::after {
+		content: url(/work01/clover.svg);
+		display: block;
+		position: absolute;
+		top: -112px;
+		right: clamp(-229px, 15.035vw + -17.836rem, -80px);
+		z-index: -1;
+		width: 383px;
+	}
+	@media (min-width: 768px) {
+		.clover > [class^='container']::after {
+			right: -80px;
+		}
+	}
+
+	/* box */
+	.box {
+		composes: default;
+		position: relative;
+	}
+	.box::before,
+	.box::after {
+		content: '';
+		display: block;
+		position: absolute;
+		z-index: -1;
+		width: 66%;
+		height: 50%;
+		background-color: var(--primary-light);
+	}
+	.box::before {
+		top: 0;
+		left: 0;
+	}
+	.box::after {
+		bottom: 0;
+		right: 0;
+	}
+
+	/* frame */
+	.frame {
+		composes: default;
+		overflow: hidden;
+	}
+
+	.frame > [class^='container'] > [class^='grid'] {
+		padding: var(--spacing-60) var(--spacing-15-93);
+		border: solid 2px var(--secondary);
+	}
+	@media (max-width: 500px) {
+		.frame > [class^='container'] {
+			padding-inline: 15px;
+		}
+	}
+
+	.frame > [class^='container'] {
+		position: relative;
+	}
+	.frame > [class^='container']::before {
+		content: url(/work01/clover01.svg);
+		display: block;
+		position: absolute;
+		top: -98px;
+		left: -105px;
+		z-index: -1;
+		width: 229px;
+		rotate: 4.19deg;
+	}
+	.frame > [class^='container']::after {
+		content: url(/work01/clover02.svg);
+		display: block;
+		position: absolute;
+		top: 132px;
+		right: -60px;
+		z-index: -1;
+		width: 135px;
+		rotate: 17.55deg;
+	}
+	@media (min-width: 768px) {
+		.frame > [class^='container']::before {
+			top: -68px;
+			left: -109px;
+		}
+		.frame > [class^='container']::after {
+			top: 192px;
+			left: -87px;
+			right: auto;
+		}
+	}
+}

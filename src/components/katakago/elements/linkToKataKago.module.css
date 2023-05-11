@@ -1,0 +1,42 @@
+.bar {
+	background-color: #efefef;
+	font-size: 1rem;
+	line-height: 1.2;
+}
+
+.bar svg,
+.bar img {
+	width: auto;
+	height: 1.5em;
+}
+
+.bar a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1em;
+	padding-block: 0.25em;
+}
+.bar a:hover {
+	background-color: #00a2ff;
+	color: white;
+}
+
+.arrow {
+	display: flex;
+	align-items: center;
+	padding: 0.5em;
+	color: white;
+	background-color: #00a2ff;
+}
+
+.text {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	padding-top: 0.2em;
+	margin-block: 0.5em;
+}
+.logo {
+	margin-bottom: 0.4em;
+}

@@ -1,0 +1,68 @@
+@layer work.component {
+	/* 商品追加フォーム */
+	.cart {
+		align-self: flex-start;
+		padding: 52px 20px;
+		border-radius: 10px;
+		background-color: #eeeeee;
+		background: var(--gray-light);
+	}
+	@media (min-width: 768px) {
+		.cart {
+			padding-inline: 36px;
+		}
+	}
+
+	.cart .price {
+		padding-bottom: 22px;
+		border-bottom: solid 1px var(--gray);
+		color: #c50a0a;
+		font-size: 24px;
+		font-family: sans-serif;
+		font-weight: bold;
+	}
+
+	.cart .price span {
+		font-size: var(--fontSize-14);
+		font-weight: normal;
+	}
+
+	.cart .qty {
+		display: block;
+		padding: 44px 0;
+		font-size: var(--fontSize-14);
+		font-weight: 500;
+	}
+
+	.cart .qty select {
+		width: 154px;
+		margin-left: 31px;
+		padding: 14px 20px 13px;
+		border: 1px solid var(--gray);
+		border-radius: 10px;
+		background-color: #ffffff;
+		background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%229.035%22%20height%3D%225.748%22%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23888%22%20stroke-width%3D%222%22%20d%3D%22m.689.725%203.828%203.643L8.345.725%22%2F%3E%3C%2Fsvg%3E');
+		background-repeat: no-repeat;
+		background-position: right 15px center;
+		font-family: inherit;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+
+	.button {
+		composes: button from '@/components/work01/elements/button.module.css';
+		gap: 10px;
+		width: 100%;
+		min-width: 0;
+		padding: 24px 12px;
+		background-color: var(--accent);
+		border: none;
+		color: var(--white);
+		cursor: pointer;
+		-webkit-tap-highlight-color: transparent;
+	}
+	.button:hover {
+		background-color: var(--accent-high);
+	}
+}

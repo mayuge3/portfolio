@@ -1,0 +1,19 @@
+@layer work.layout {
+	.container {
+		max-width: 1088px;
+		margin-inline: auto;
+		padding-inline: 30px;
+		box-sizing: content-box;
+	}
+
+	.wide {
+		max-width: 1158px;
+		padding-inline: 15px;
+	}
+
+	@media (max-width: 767px) {
+		.mobileFull {
+			padding-inline: 0;
+		}
+	}
+}

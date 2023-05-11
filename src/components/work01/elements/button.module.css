@@ -1,0 +1,24 @@
+@layer work.component {
+	.button {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		justify-self: flex-start;
+		width: fit-content;
+		min-width: 264px;
+		padding: 15px;
+		background-color: var(--primary);
+		border: 2px solid #ffffff;
+		box-shadow: var(--shadow);
+		border-radius: 4px;
+		font-size: 18px;
+		font-weight: 500;
+		-webkit-tap-highlight-color: transparent;
+		transition: background-color 0.3s ease-in-out;
+	}
+	.button:hover {
+		opacity: 1;
+		background-color: var(--primary-high);
+	}
+}

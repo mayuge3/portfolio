@@ -1,0 +1,330 @@
+/* トップページのスタイル */
+
+@layer layout {
+	/* メインヘッダー */
+	.mainHeader {
+		display: grid;
+		place-items: center;
+		--stackGap: 50px;
+		height: 80svh;
+		min-height: 500px;
+		text-align: center;
+		animation: fadein 0.75s ease-in-out;
+	}
+
+	.mainHeader {
+		position: relative;
+	}
+	.mainHeader::before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 85%;
+		left: 0;
+		margin: auto;
+		width: 30px;
+		height: 40%;
+		scale: 1 0;
+		transform-origin: 0% 0%;
+		background-image: linear-gradient(to top, var(--logoColor), #00a2ff00);
+		animation: scale 0.75s ease-in-out 1.2s forwards;
+	}
+
+	@keyframes fadein {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+	@keyframes scale {
+		0% {
+			scale: 1 0;
+		}
+		100% {
+			scale: 1 1;
+		}
+	}
+
+	/* メインヘッダー ロゴ */
+	.logo {
+		color: var(--logoDarkColor);
+		font-size: 2.2em;
+		font-weight: 600;
+	}
+	.logo svg {
+		width: 360px;
+		max-width: 100%;
+	}
+	.logo span svg {
+		display: block;
+		margin-top: 1em;
+		width: 200px;
+		max-width: 100%;
+		margin-inline: auto;
+	}
+
+	.logoSubText {
+		margin-top: 2em;
+		font-weight: normal;
+	}
+
+	/* 制作事例 */
+	.works {
+		--stackGap: 4em;
+		margin-block: 50px;
+		padding-block: 100px;
+		background: var(--lightGray);
+	}
+
+	.worksHeader {
+		composes: stack from '@/components/katakago/layout/layout.module.css';
+		--stackGap: 1.8em;
+	}
+	.works h2 {
+		text-align: center;
+	}
+	.works h2 span {
+		display: block;
+		margin-bottom: 0.8em;
+		color: var(--gray);
+		font-size: 0.5em;
+		font-weight: 100;
+	}
+	.works h2 + p {
+		max-width: 720px;
+		margin-inline: auto;
+		text-align: left;
+	}
+
+	/* カード */
+	.cards {
+		--padding-inline: 30px;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 3em;
+		font-size: 0.875em;
+	}
+	.card {
+		--stackGap: 1.8em;
+		position: relative;
+	}
+	.card a {
+		display: block;
+		padding: var(--padding-inline);
+		padding-bottom: 40px;
+		background: white;
+		border-radius: 10px;
+		box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+	}
+
+	.card a:hover {
+		box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5), 0 0 0 2px black;
+	}
+	.card a:hover .button {
+		position: relative;
+		z-index: 10;
+		background-color: var(--logoColor);
+		color: #fff;
+	}
+
+	/* カード全幅 */
+	.cardWide {
+		composes: card;
+		grid-column: span 2;
+	}
+
+	@media (max-width: 1180px) {
+		.cards {
+			grid-template-columns: 1fr;
+		}
+
+		.cardWide {
+			grid-column: span 1;
+		}
+	}
+
+	/* カード内のコンテンツ */
+	.workTitle {
+		display: flex;
+		align-items: center;
+		gap: 1.5em;
+		position: relative;
+		z-index: 1;
+	}
+	.workTitle h3 {
+		font-size: 1.5em;
+		font-weight: 500;
+		line-height: 1.5;
+		word-break: keep-all;
+	}
+	.workTitle p {
+		font-size: 16px;
+		margin-top: 1em;
+	}
+
+	.workNumber {
+		font-size: 6.5em;
+		font-weight: 200;
+		line-height: 1;
+	}
+
+	.workImage {
+		position: relative;
+		margin-inline: calc(var(--padding-inline) * -1);
+		margin-top: -1em;
+	}
+	.workImage > div {
+		position: relative;
+		z-index: 2;
+		margin-left: -20px;
+	}
+	.workImage::before {
+		content: '';
+		position: absolute;
+		inset: 15% 0 0 0;
+		background-image: var(--gradient);
+		z-index: 1;
+	}
+
+	.workTecImage img {
+		height: 50px;
+		width: auto;
+	}
+
+	.workDetail {
+		composes: stack from '@/components/katakago/layout/layout.module.css';
+		width: 95%;
+		margin-top: 0.5em;
+		margin-inline: auto;
+	}
+
+	.button {
+		composes: button from '@/components/katakago/layout/layout.module.css';
+		width: auto;
+		max-width: none;
+	}
+	.button:hover {
+		background-color: white;
+		color: inherit;
+	}
+
+	@media (max-width: 560px) {
+		.cards {
+			gap: 6em;
+			margin-top: 6em;
+		}
+		.card {
+			--padding-inline: 20px;
+		}
+		.workTitle {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 1em;
+			margin-top: -3.5em;
+		}
+		.workNumber {
+			font-size: 4em;
+		}
+
+		.workImage {
+			margin-top: 0;
+		}
+		.workImage > div {
+			margin-left: -10px;
+		}
+		.workTecImage img {
+			height: 40px;
+		}
+	}
+
+	/* カード内のボタンの横位置を揃える設定 */
+	.card a {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+	.workDetail {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+	}
+	.workDetail p {
+		margin-bottom: 1.8em;
+	}
+	.button {
+		margin-top: auto;
+	}
+
+	/* 99 カード */
+	.workImage99 {
+		composes: workImage;
+		margin-top: -5em;
+	}
+	.workImage99::before {
+		top: 42%;
+		background-size: cover;
+		background-position: center;
+	}
+	.workImage99 > div {
+		display: flex;
+		align-items: flex-end;
+		gap: 0;
+		margin-left: 0;
+	}
+
+	.docImage01 {
+		flex: 1;
+		margin-bottom: -1.5em;
+	}
+	.docImage01 img {
+		width: 92%;
+		margin-left: auto;
+	}
+	.docImage02 {
+		flex: 1;
+	}
+	.docImage02 img {
+		width: 92%;
+		margin-right: auto;
+	}
+
+	.workDetail99 {
+		composes: workDetail;
+		margin-top: 2em;
+	}
+	.workDetail99 p {
+		max-width: 740px;
+	}
+
+	@media (max-width: 1180px) {
+		.workImage99 {
+			margin-top: -2.5em;
+		}
+	}
+	@media (max-width: 560px) {
+		.workImage99 {
+			margin-top: 2em;
+		}
+		.workImage99::before {
+			top: 10%;
+		}
+		.workImage99 > div {
+			flex-direction: column;
+		}
+		.docImage01 {
+			margin-bottom: 0;
+		}
+		.docImage01 img {
+			margin-inline: auto;
+		}
+		.docImage02 img {
+			margin-inline: auto;
+		}
+
+		.workDetail99 {
+			margin-top: 1em;
+		}
+	}
+}
