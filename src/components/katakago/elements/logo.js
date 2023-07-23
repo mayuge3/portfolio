@@ -1,9 +1,11 @@
 import Image from 'next/image'
 
+// ロゴ画像
 import logo from '@/assets/katakago/logo.svg'
 
 export default function Logo({ type = 'logo' }) {
 	const logos = {
+		// Logo Text
 		katakago: (
 			<svg
 				xmlns="http://www.w3.org/2000/svg"

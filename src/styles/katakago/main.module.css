@@ -135,7 +135,7 @@
 		grid-column: span 2;
 	}
 
-	@media (max-width: 1180px) {
+	@media (max-width: 900px) {
 		.cards {
 			grid-template-columns: 1fr;
 		}
@@ -204,6 +204,8 @@
 		composes: button from '@/components/katakago/layout/layout.module.css';
 		width: auto;
 		max-width: none;
+		padding-inline: 1em;
+		line-height: 1.4;
 	}
 	.button:hover {
 		background-color: white;

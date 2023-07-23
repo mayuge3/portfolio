@@ -14,7 +14,7 @@
 		font-family: var(--font-code), var(--font-noto);
 		-webkit-text-size-adjust: none;
 		-webkit-font-smoothing: antialiased;
-		font-size: clamp(16px, 2.3vw, 20px);
+		font-size: clamp(0.88rem, 0.38vw + 0.79rem, 1.125rem);
 		line-height: 1.8;
 		line-break: strict;
 	}
