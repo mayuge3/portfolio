@@ -39,10 +39,6 @@ export default function Home() {
 							<span>Productions</span>
 							制作事例
 						</h2>
-						<p>
-							クライアントワークは掲載できないため、このサイトにはクライアントワークをもとに作成した２つの制作事例
-							01・02 を掲載しています。
-						</p>
 					</div>
 
 					<div className={styles.cards}>
@@ -70,7 +66,7 @@ export default function Home() {
 									</figure>
 
 									<p>
-										オーガニック野菜の販売サイトです。「スタイリッシュでありながら親しみやすい」をコンセプトにデザインし、商品ページおよびカートまわりを実装しています。
+										オーガニック野菜の販売サイトです。「スタイリッシュでありながら親しみやすい」をコンセプトにデザインし、Stripeを使ったショッピングカートシステムを実装しています。
 									</p>
 
 									<div className={styles.button}>
@@ -106,7 +102,7 @@ export default function Home() {
 									</figure>
 
 									<p>
-										手作り照明のブランドサイトです。白と黒を基調に、組写真を活かしたレイアウトにしています。実装ではTailwind
+										手作り照明のブランドサイトです。白と黒を基調に、組写真を活かしたレイアウトにしています。実装にはTailwind
 										CSSとそのデザインシステムを活用しています。
 									</p>
 
@@ -118,14 +114,11 @@ export default function Home() {
 						</div>
 
 						<div className={styles.cardWide}>
-							<Link href="/documentation">
+							<Link href="/works">
 								<div className={styles.workTitle}>
 									<div className={styles.workNumber}>99</div>
 									<div>
-										<h3>
-											Documentation - <wbr />
-											ポートフォリオ資料
-										</h3>
+										<h3>制作事例の詳細とこのサイトの構成について</h3>
 									</div>
 								</div>
 
@@ -150,13 +143,11 @@ export default function Home() {
 										/>
 									</figure>
 
-									<p>
-										Figma、PDF、GitHub
-										など、このサイトと制作事例、制作者プロフィールについては、資料としてこちらにまとめています。
-									</p>
+									<p>制作事例の詳細とこのサイトの構成についてはこちらをご覧ください。</p>
 
 									<div className={styles.button}>
-										資料を見る <Icon icon="arrowRight" />
+										詳細を見る
+										<Icon icon="arrowRight" />
 									</div>
 								</div>
 							</Link>

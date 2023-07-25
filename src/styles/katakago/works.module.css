@@ -1,4 +1,4 @@
-/* 資料ページのスタイル */
+/* Worksページのスタイル */
 @layer default {
 	.entry,
 	.textStack {
@@ -21,11 +21,6 @@
 }
 
 @layer layout {
-	/* 資料全体 */
-	.doc {
-		padding: 100px 0;
-	}
-
 	/* 外部リンク（リスト） */
 	.outerlinks {
 		composes: flex from '@/components/katakago/layout/layout.module.css';
@@ -38,6 +33,30 @@
 }
 
 @layer theme {
+	/* Fixed Mark */
+	.fixedMark {
+		content: '';
+		display: block;
+		position: fixed;
+		top: 0;
+		right: 0;
+		width: 50px;
+		height: 230px;
+		background-image: linear-gradient(to top, var(--logoColor), #00a2ff44);
+		background: var(--logoColor);
+	}
+
+	@media (max-width: 900px) {
+		.fixedMark {
+			width: 20px;
+		}
+	}
+	@media (max-width: 560px) {
+		.fixedMark {
+			width: 8px;
+		}
+	}
+
 	/* 本文カラム（３カラム構成） */
 	.column {
 		display: grid;
@@ -142,6 +161,9 @@
 		.secSub {
 			grid-column: 1/-1;
 		}
+		.secSubInner {
+			position: sticky;
+		}
 		.secMain {
 			grid-column: 1 / -1;
 		}
@@ -153,6 +175,11 @@
 			white-space: nowrap;
 			display: none;
 		}
+	}
+
+	/* 業務経験 */
+	.experience ul + p {
+		margin-top: 1.25em;
 	}
 
 	/* 図版 */

@@ -5,91 +5,28 @@ import Icon from '@/components/katakago/elements/icon'
 import Photo from '@/components/katakago/elements/photo'
 import Skills from '@/components/katakago/elements/skills'
 
-import styles from '@/styles/katakago/documentation.module.css'
+import styles from '@/styles/katakago/works.module.css'
 
 import site from '@/assets/katakago/site.png'
 import work01Mock from '@/assets/katakago/work01-mock.png'
 import work02Mock from '@/assets/katakago/work02-mock.png'
-import work01Tec from '@/assets/katakago/work01-tec.png'
-import work02Tec from '@/assets/katakago/work02-tec.png'
+import work01Tec from '@/assets/katakago/work01-tech-with-next.png'
+import work02Tec from '@/assets/katakago/work02-tech-with-next.png'
 import work01Figma from '@/assets/katakago/work01-figma.jpg'
 import work02Figma from '@/assets/katakago/work02-figma.jpg'
 
-export default function Documentation() {
+export default function Works() {
 	return (
 		<>
-			<NextSeo title="ポートフォリオ資料" description="サイトの資料をまとめたページです" />
+			<NextSeo title="制作事例とサイト構成" description="制作事例とサイト構成を掲載" />
 			<article className={styles.doc}>
 				<Container wide>
+					<div className={styles.fixedMark}></div>
 					<div className={styles.entry}>
-						<div className={styles.header}>
-							<h1>
-								<span>Documentation</span>
-								<br />
-								資料
-							</h1>
-						</div>
-
-						<section className={styles.sec}>
-							<div className={styles.secSub}>
-								<div>
-									<div className={styles.subTitle}>About This Site</div>
-								</div>
-							</div>
-							<div className={styles.secMain}>
-								<h2 id="this-site" className={styles.title}>
-									<span>Portfolio Kata-Kago</span>
-									このサイトについて
-								</h2>
-
-								<p>
-									このサイト内には２つの制作事例 01 と 02
-									を共存させ、動作しているものを見ていただけるようにしています。
-									<br />
-									事例ごとに異なる技術を使い分けるため、@layer を利用するなどの工夫をしています。
-									詳しくは GitHub のリポジトリや PDF を参考にしてください。
-								</p>
-
-								<ul className={styles.outerlinks}>
-									<li>
-										<Link
-											href="https://github.com/mayuge3/portfolio"
-											target="_blank"
-											className={styles.outerlink}
-										>
-											GitHub
-											<Icon icon="arrowUpRight" />
-										</Link>
-									</li>
-									<li>
-										<Link
-											href="/portfolio.pdf"
-											target="_blank"
-											rel="noopener noreferrer"
-											className={styles.outerlink}
-										>
-											PDF
-											<Icon icon="arrowUpRight" />
-										</Link>
-									</li>
-								</ul>
-
-								<p className={styles.small}>※ 制作期間： 1ヶ月（制作事例込み）</p>
-								<figure className={styles.photoSite}>
-									<Photo
-										src={site}
-										alt="Next.jsで構築した１つのサイト内で制作事例を共存させ、個別に管理しています。"
-										sizes="(min-width: 900px) 1600px, 100vw"
-										priority
-									/>
-								</figure>
-							</div>
-						</section>
-
 						<section>
 							<div className={styles.sec}>
 								<div className={styles.secSub}>
-									<div>
+									<div className={styles.secSubInner}>
 										<div className={styles.subTitle}>Productions</div>
 									</div>
 								</div>
@@ -100,10 +37,8 @@ export default function Documentation() {
 									</h2>
 
 									<p>
-										クライアントワークをもとに作成した制作事例です。
-										制作コンセプトやデザイン、トークン、
-										CSS設計、アクセシビリティ、SEO、コンポーネントの構成など、実装に必要な情報はすべて
-										Figma ファイルにまとめています。
+										コンセプト設計からデザイン、実装、コンポーネント化、ガイドライン制作（トークン、CSS設計、アクセシビリティ、SEO）など、サイト構築にかかわるすべての工程を手掛けた事例です。
+										構築に必要な情報は Figma にまとめています。
 									</p>
 								</div>
 							</div>
@@ -128,8 +63,8 @@ export default function Documentation() {
 											<figure>
 												<Photo
 													src={work01Tec}
-													alt="採用技術: CSS Modules、Stripe、Framer Motion"
-													width="160"
+													alt="採用技術: Next.js、CSS Modules、Stripe、Framer Motion"
+													width="240"
 													height="32"
 												/>
 											</figure>
@@ -199,7 +134,7 @@ export default function Documentation() {
 												<Photo
 													src={work02Tec}
 													alt="採用技術: Tailwind CSS、Framer Motion"
-													width="160"
+													width="240"
 													height="23.2"
 												/>
 											</figure>
@@ -249,6 +184,59 @@ export default function Documentation() {
 						<section className={styles.sec}>
 							<div className={styles.secSub}>
 								<div>
+									<div className={styles.subTitle}>Site Structure</div>
+								</div>
+							</div>
+							<div className={styles.secMain}>
+								<h2 id="this-site" className={styles.title}>
+									<span>Portfolio Kata-Kago</span>
+									このサイトの構成
+								</h2>
+
+								<p>
+									このサイトでは技術スタックの異なる２つの事例を実装し、動作しているものを見ていただけるようにしています。技術を使い分けるため、@layer
+									を活用するなどの工夫をしていますので、詳しくは GitHub のリポジトリや PDF
+									を参考にしてください。
+								</p>
+
+								<ul className={styles.outerlinks}>
+									<li>
+										<Link
+											href="https://github.com/mayuge3/portfolio"
+											target="_blank"
+											className={styles.outerlink}
+										>
+											GitHub
+											<Icon icon="arrowUpRight" />
+										</Link>
+									</li>
+									<li>
+										<Link
+											href="/portfolio.pdf"
+											target="_blank"
+											rel="noopener noreferrer"
+											className={styles.outerlink}
+										>
+											PDF
+											<Icon icon="arrowUpRight" />
+										</Link>
+									</li>
+								</ul>
+
+								<figure className={styles.photoSite}>
+									<Photo
+										src={site}
+										alt="Next.jsで構築した１つのサイト内で制作事例を共存させ、個別に管理しています。"
+										sizes="(min-width: 900px) 1600px, 100vw"
+										priority
+									/>
+								</figure>
+							</div>
+						</section>
+
+						<section className={styles.sec}>
+							<div className={styles.secSub}>
+								<div>
 									<div className={styles.subTitle}>Profile</div>
 								</div>
 							</div>
@@ -264,11 +252,32 @@ export default function Documentation() {
 								</div>
 
 								<p>
-									Web制作におけるデザインとコーディングを得意としており、React系の
-									フレームワークも含めた幅広い技術に対応できます。
-									<br />
-									各種CSSフレームワークやUIライブラリを使ったスタイル設計、FigmaやXDなどを使ったデザイン制作から、WordPressのテーマ開発、印刷物の作成にも対応可能です。
+									常に新しい技術を取り入れながら、フリーランスとして
+									Web構築・コーディング・デザインに携わっています。特にCSSを得意としており、メンテナンス性の高いCSS管理、原因がわからないレイアウト崩れへの緊急対応、レスポンシブ実装などに精通しています。
 								</p>
+
+								<div className={styles.experience}>
+									<p>【主な業務経験】</p>
+									<ul>
+										<li>コーポレートサイト、ECサイト、LPなどのコーディング＆デザイン</li>
+										<li>コード（HTML/CSS）の最適化、コンポーネント作成、デザインシステム構築</li>
+										<li>Figma、XDを使ったデザイン制作</li>
+										<li>
+											派生物（設計書やドキュメント、販促バナー、SNS用画像、記事サムネイル、フライヤーなど）の作成
+										</li>
+									</ul>
+									<p>【フレームワーク関連の業務経験】</p>
+									<ul>
+										<li>Next.js、Astro などを使ったWeb構築</li>
+										<li>エンジニアの方をサポートするコーディング＆デザイン（HTML/CSS）</li>
+									</ul>
+									<p>【WordPress関連の業務経験】</p>
+									<ul>
+										<li>WordPressを使ったWebサイト・LP・テーマ制作</li>
+										<li>コンテンツ編集者のUX改善（ブロックエディターの最適化）</li>
+										<li>ブロックテーマ制作</li>
+									</ul>
+								</div>
 
 								<h3 className={styles.skillHeading}>
 									<Icon icon="plus" />
