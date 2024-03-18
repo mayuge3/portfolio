@@ -1,0 +1,341 @@
+/* コンテナのスタイル */
+@layer work.layout {
+	.container {
+		max-width: var(--container);
+		margin-inline: auto;
+		padding-inline: var(--container-padding);
+		box-sizing: content-box;
+	}
+
+	/* 幅広 */
+	.containerWide {
+		composes: container;
+		max-width: var(--container-wide);
+		padding-inline: var(--container-wide-padding);
+	}
+
+	@media (max-width: 767px) {
+		/* モバイルで全幅 */
+		.containerMobileFull {
+			composes: container;
+			padding-inline: 0;
+		}
+	}
+}
+
+/* グリッドのスタイル */
+@layer work.layout {
+	/* グリッドの基本スタイル */
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		column-gap: 10px;
+		row-gap: var(--spacing-36);
+	}
+	@media (min-width: 768px) {
+		.grid {
+			grid-template-columns: repeat(12, 1fr);
+			column-gap: 16px;
+		}
+	}
+	.grid > * {
+		grid-column: 1 / -1;
+	}
+
+	/* グリッド1列-4列 */
+	.grid1-4 {
+		composes: grid;
+	}
+	@media (min-width: 768px) {
+		.grid1-4 > * {
+			grid-column: span 3;
+		}
+	}
+
+	/* 2-4 */
+	.gridResponsiveColumns_2_to_4 {
+		composes: grid;
+	}
+	.gridResponsiveColumns_2_to_4 > * {
+		grid-column: span 2;
+	}
+
+	@media (min-width: 768px) {
+		.gridResponsiveColumns_2_to_4 > * {
+			grid-column: span 3;
+		}
+	}
+
+	/* 2 */
+	.gridResponsiveColumns_2 {
+		composes: grid;
+	}
+	.gridResponsiveColumns_2 > * {
+		grid-column: span 2;
+	}
+	@media (min-width: 768px) {
+		.gridResponsiveColumns_2 > * {
+			grid-column: span 6;
+		}
+	}
+
+	/* 2_to_3 */
+	.gridResponsiveColumns_2_to_3 {
+		composes: grid;
+	}
+	.gridResponsiveColumns_2_to_3 > * {
+		grid-column: span 2;
+	}
+	.gridResponsiveColumns_2_to_3 > :first-child {
+		grid-column: span 4;
+	}
+	@media (min-width: 768px) {
+		.gridResponsiveColumns_2_to_3 > * {
+			grid-column: span 4;
+		}
+	}
+
+	/* 商品ページ用２段組み */
+	.gridItemCols {
+		composes: grid;
+	}
+	@media (min-width: 768px) {
+		.gridItemCols > :first-child {
+			grid-column: span 6;
+		}
+		.gridItemCols > :last-child {
+			grid-column: span 5 /-1;
+		}
+	}
+}
+
+/* セクションのスタイル */
+@layer work.layout {
+	/* 基本のセクション */
+	.section {
+		position: relative;
+		padding-block: var(--spacing-112);
+	}
+	.section p {
+		max-width: 536px;
+	}
+
+	/* セクションのリンクターゲットの位置 */
+	.sectionLinktarget {
+		position: absolute;
+		top: -50px;
+		width: 0px;
+		height: 0px;
+	}
+
+	/* セクションのスタイルバリエーション：ピンクのクローバー */
+	.sectionClover {
+		composes: section;
+		overflow: hidden;
+	}
+	.sectionClover > [class^='container'] {
+		position: relative;
+	}
+	.sectionClover > [class^='container']::after {
+		content: url(/work01/clover.svg);
+		display: block;
+		position: absolute;
+		top: -112px;
+		right: clamp(-229px, 15.035vw + -17.836rem, -80px);
+		z-index: -1;
+		width: 383px;
+	}
+	@media (min-width: 768px) {
+		.sectionClover > [class^='container']::after {
+			right: -80px;
+		}
+	}
+
+	/* セクションのスタイルバリエーション：緑の背景ボックス */
+	.sectionBox {
+		composes: section;
+		position: relative;
+	}
+	.sectionBox::before,
+	.sectionBox::after {
+		content: '';
+		display: block;
+		position: absolute;
+		z-index: -1;
+		width: 66%;
+		height: 50%;
+		background-color: var(--primary-light);
+	}
+	.sectionBox::before {
+		top: 0;
+		left: 0;
+	}
+	.sectionBox::after {
+		bottom: 0;
+		right: 0;
+	}
+
+	/* セクションのスタイルバリエーション：ピンクの枠囲み */
+	.sectionFrame {
+		composes: section;
+		overflow: hidden;
+	}
+
+	.sectionFrame > [class*='container'] > [class*='grid'] {
+		padding: var(--spacing-60) var(--spacing-15-93);
+		border: solid 2px var(--secondary);
+	}
+
+	.sectionFrame [class*='button'] {
+		margin-inline: auto;
+	}
+
+	@media (max-width: 500px) {
+		.sectionFrame > [class*='container'] {
+			padding-inline: 15px;
+		}
+	}
+
+	.sectionFrame > [class*='container'] {
+		position: relative;
+	}
+	.sectionFrame > [class*='container']::before {
+		content: url(/work01/clover01.svg);
+		display: block;
+		position: absolute;
+		top: -98px;
+		left: -105px;
+		z-index: -1;
+		width: 229px;
+		rotate: 4.19deg;
+	}
+	.sectionFrame > [class*='container']::after {
+		content: url(/work01/clover02.svg);
+		display: block;
+		position: absolute;
+		top: 132px;
+		right: -60px;
+		z-index: -1;
+		width: 135px;
+		rotate: 17.55deg;
+	}
+	@media (min-width: 768px) {
+		.sectionFrame > [class*='container']::before {
+			top: -68px;
+			left: -109px;
+		}
+		.sectionFrame > [class*='container']::after {
+			top: 192px;
+			left: -87px;
+			right: auto;
+		}
+	}
+}
+
+/* 商品ページ（[slug].js）のスタイル */
+@layer work.layout {
+	.item {
+		overflow: hidden;
+	}
+
+	/* body */
+	.itemBody {
+		padding-top: var(--spacing-36-112);
+	}
+
+	/* text */
+	.itemText > * + * {
+		margin-top: var(--spacing-45);
+	}
+	.itemText {
+		font-size: var(--fontSize-14-16);
+	}
+	.itemText h1 {
+		font-size: var(--fontSize-24-44);
+	}
+
+	.handling {
+		margin-top: var(--spacing-72);
+		display: grid;
+		gap: var(--spacing-24);
+		font-size: var(--fontSize-14-16);
+	}
+	.handling li {
+		display: grid;
+		grid-template-columns: 54px 1fr;
+	}
+	.handling :global(.icon) {
+		grid-row: span 2;
+		fill: var(--tertiary);
+	}
+
+	.handling h2 {
+		font-size: var(--fontSize-16-18);
+		font-weight: 500;
+	}
+}
+
+/* Successページ（success.js）のスタイル */
+@layer work.layout {
+	.item {
+		overflow: hidden;
+	}
+	.message {
+		margin-block: var(--spacing-36-72) var(--spacing-112);
+		padding: var(--spacing-112) var(--spacing-15-93);
+		border: solid 2px var(--secondary);
+		text-align: center;
+	}
+
+	.message h1 {
+		font-size: var(--fontSize-20-36);
+		word-break: keep-all;
+	}
+
+	.message p {
+		max-width: 380px;
+		margin-inline: auto;
+		margin-top: var(--spacing-45);
+		text-align: left;
+	}
+}
+
+@layer work.decoration {
+	.message {
+		position: relative;
+	}
+
+	.message::before {
+		content: url(/work01/clover01.svg);
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		translate: -45% 36%;
+		z-index: 1;
+		width: 108px;
+		rotate: 54deg;
+		mix-blend-mode: multiply;
+	}
+	.message::after {
+		content: url(/work01/clover02.svg);
+		display: block;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		translate: -20% 50%;
+		z-index: 1;
+		width: 54px;
+		rotate: 74deg;
+		mix-blend-mode: multiply;
+	}
+	@media (min-width: 768px) {
+		.message::before {
+			width: 229px;
+		}
+		.message::after {
+			translate: 40% -10%;
+			width: 135px;
+		}
+	}
+}

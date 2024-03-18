@@ -6,25 +6,48 @@
   <br /><br />
 </div>
 
-
-## 構成
-
-構成ファイルはコンポーネントやアセットごとに次のように分類
-
-| Directory  | 内容                   |
-| ---------- | ---------------------- |
-| katakago/  | サイト全体のファイル     |
-| work01/    | 制作事例 01 のファイル |
-| work02/    | 制作事例 02 のファイル |
-
 ## 使用技術
 
-- Next.js
+- Next.js (App Router)
 - CSS Modules
 - Tailwind CSS
 - Framer Motion
 - Stripe
 
+
+## ディレクトリ構成
+
+```
+src
+├── app
+│   ├── (katakago)
+│   │   ├── _assets
+│   │   ├── _components
+│   │   ├── _styles
+│   │   └── works
+│   ├── work01
+│   │   ├── [slug]
+│   │   ├── _assets
+│   │   ├── _components
+│   │   ├── _lib
+│   │   ├── _styles
+│   │   └── success
+│   └── work02
+│       ├── (contnetPage)
+│       │   ├── about
+│       │   └── products
+│       ├── (topPage)
+│       ├── _assets
+│       └── _components
+├── assets
+│   └── fonts
+└── lib
+    └── constants.ts
+```
+
+
 ## MEMO
 
-- Docker コンテナ化して Google Cloud Run にて運用中
+- Metaデータの設定はまだ
+
+
