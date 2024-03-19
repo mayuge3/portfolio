@@ -1,0 +1,6 @@
+export { default as BoxesPackingSolidIcon } from "./BoxesPackingSolidIcon"
+export { default as CartShoppingSolidIcon } from "./CartShoppingSolidIcon"
+export { default as TemperatureLowSolidIcon } from "./TemperatureLowSolidIcon"
+export { default as UtensilsSolidIcon } from "./UtensilsSolidIcon"
+export { default as VegIcon } from "./VegIcon"
+export { default as WaveIcon } from "./WaveIcon"

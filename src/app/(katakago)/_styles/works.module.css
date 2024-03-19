@@ -1,0 +1,423 @@
+/* Worksページのスタイル */
+@layer default {
+  .entry,
+  .textStack {
+    composes: stack from '@/katakago/_styles/layout.module.css';
+  }
+
+  .entry ul {
+    padding: revert;
+    list-style: revert;
+  }
+
+  .entry iframe {
+    width: 100%;
+  }
+
+  .small {
+    font-size: 0.875em;
+    color: var(--gray);
+  }
+}
+
+@layer layout {
+  /* 外部リンク（リスト） */
+  .outerlinks {
+    composes: flex from '@/katakago/_styles/layout.module.css';
+    padding: 0;
+    list-style: none;
+  }
+  .outerlink {
+    composes: button from '@/katakago/_styles/layout.module.css';
+  }
+}
+
+@layer theme {
+  /* Fixed Mark */
+  .fixedMark {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 230px;
+    background-image: linear-gradient(to top, var(--logoColor), #00a2ff44);
+    background: var(--logoColor);
+  }
+
+  @media (max-width: 900px) {
+    .fixedMark {
+      width: 20px;
+    }
+  }
+  @media (max-width: 560px) {
+    .fixedMark {
+      width: 8px;
+    }
+  }
+
+  /* 本文カラム（３カラム構成） */
+  .column {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 7fr) minmax(0, 1.5fr);
+  }
+
+  /* 本文ヘッダー */
+  .header {
+    composes: column;
+  }
+  .header h1 {
+    grid-column: 2;
+    line-height: 1.4;
+  }
+  .header h1 span {
+    font-weight: 400;
+  }
+
+  .header::after {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 230px;
+    background-image: linear-gradient(to top, var(--logoColor), #00a2ff44);
+    background: var(--logoColor);
+  }
+
+  @media (max-width: 900px) {
+    .header h1 {
+      grid-column: 1 / -1;
+    }
+    .header::after {
+      position: absolute;
+    }
+  }
+  @media (max-width: 560px) {
+    .header h1 {
+      font-size: 2.25em;
+    }
+    .header::after {
+      width: 20px;
+    }
+  }
+
+  /* 本文セクション */
+  .sec {
+    composes: column;
+    position: relative;
+    margin-top: 6em;
+  }
+  .secSpaceMd {
+    composes: sec;
+    margin-top: 2.7em;
+  }
+  .secSpaceSm {
+    composes: sec;
+    margin-top: 1.8em;
+  }
+
+  .subTitle {
+    position: absolute;
+    top: 0em;
+    right: 102%;
+    rotate: -90deg;
+    transform-origin: 100% 0%;
+    color: var(--logoColor);
+    font-size: 3em;
+    font-weight: 300;
+    white-space: nowrap;
+  }
+
+  .secMain {
+    composes: stack from '@/katakago/_styles/layout.module.css';
+    grid-column: 2;
+  }
+
+  .title span {
+    display: block;
+    margin-bottom: 0.8em;
+    color: var(--gray);
+    font-size: 0.5em;
+    font-weight: 100;
+  }
+  .title::after {
+    content: '';
+    display: block;
+    height: 8px;
+    background-image: linear-gradient(to right, var(--logoColor), white);
+    margin-top: 0.2em;
+    margin-right: calc(-50vw + 75%);
+  }
+
+  @media (max-width: 900px) {
+    .secMain {
+      grid-column: 2 / span 2;
+    }
+  }
+  @media (max-width: 560px) {
+    .secSub {
+      grid-column: 1/-1;
+    }
+    .secSubInner {
+      position: sticky;
+    }
+    .secMain {
+      grid-column: 1 / -1;
+    }
+    .subTitle {
+      position: static;
+      rotate: 0deg;
+      font-size: 1.5em;
+      font-weight: 500;
+      white-space: nowrap;
+      display: none;
+    }
+  }
+
+  /* 業務経験 */
+  .experience ul + p {
+    margin-top: 1.25em;
+  }
+
+  /* 図版 */
+  .photoSite {
+    position: relative;
+    margin-top: 3em;
+    padding-bottom: 3em;
+  }
+  .photoSite::after {
+    content: '';
+    position: absolute;
+    top: 5em;
+    right: calc(-50vw + 50%);
+    bottom: 0;
+    left: -8%;
+    z-index: -1;
+    background-color: var(--lightGray);
+  }
+
+  @media (max-width: 560px) {
+    .photoSite::after {
+      top: 3em;
+      left: calc(-50vw + 50%);
+    }
+  }
+
+  /* 事例見出し */
+  .workHeading {
+    font-weight: 500;
+  }
+  .workHeading span {
+    margin-right: 0.5em;
+    font-size: 1.75em;
+    font-weight: 300;
+    vertical-align: -0.05em;
+  }
+
+  .workLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 0.1em;
+    color: var(--logoMidColor);
+    font-size: 0.75em;
+    text-decoration: underline;
+  }
+  .workLink svg {
+    height: 1em;
+  }
+
+  /* 事例説明 */
+  .workDesc {
+    display: grid;
+    grid-template-columns: 2fr 1.25fr;
+    gap: 2em;
+  }
+
+  @media (max-width: 1250px) {
+    .workDesc {
+      margin-right: -10%;
+    }
+  }
+  @media (max-width: 900px) {
+    .workDesc {
+      margin-right: 0;
+    }
+  }
+  @media (max-width: 800px) {
+    .workDesc {
+      grid-template-columns: auto;
+    }
+    .workDesc figure.workMock {
+      width: 80%;
+    }
+  }
+  @media (max-width: 560px) {
+    .workDesc figure.workMock {
+      margin-inline: auto;
+    }
+  }
+
+  /* 事例Figma */
+  .workFigma {
+    position: relative;
+    padding-bottom: 50px;
+    margin-left: -8%;
+  }
+  .workFigma img {
+    border: solid 2px #88888888;
+    object-fit: cover;
+  }
+  .workFigma::after {
+    content: '';
+    position: absolute;
+    top: -15%;
+    right: calc(-50vw + 42%);
+    bottom: 0%;
+    width: 100%;
+    z-index: -1;
+    background-color: var(--lightGray);
+  }
+
+  @media (max-width: 1250px) {
+    .workFigma {
+      margin-right: -10%;
+    }
+  }
+  @media (max-width: 900px) {
+    .workFigma {
+      margin-right: 0;
+    }
+  }
+  @media (max-width: 800px) {
+    .workFigma::after {
+      top: -30%;
+    }
+  }
+  @media (max-width: 560px) {
+    .workFigma {
+      margin-left: 0;
+    }
+    .workFigma img {
+      height: 300px;
+    }
+  }
+
+  /* Figma Link */
+  .figmaLogo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 3;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    border-radius: 5px;
+    width: 3em;
+  }
+  .figmaLogo svg {
+    width: auto;
+    height: 2em;
+    margin-inline: auto;
+  }
+
+  .workFigma .outerlink {
+    width: auto;
+    max-width: none;
+    margin-top: 0.5em;
+  }
+
+  .figmaLink {
+    position: relative;
+    display: block;
+  }
+  .figmaLink .overlay {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: #000000bb;
+    color: #ffffffdd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    font-weight: 300;
+    font-size: 1.2em;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+  .figmaLink .overlay svg {
+    height: 1em;
+  }
+  .figmaLink:hover .overlay {
+    opacity: 1;
+  }
+
+  /* 制作者プロフィール */
+  .name {
+    font-weight: 500;
+  }
+  .name span {
+    display: block;
+    margin-top: 0.5em;
+    font-weight: 300;
+    font-size: 0.875em;
+  }
+
+  /* スキルセット */
+  .skillHeading {
+    display: flex;
+    align-items: last baseline;
+    margin-top: 3.5em;
+    margin-bottom: 2.5em;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1;
+  }
+  .skillHeading span {
+    margin-right: 0.5em;
+    font-size: 1.75em;
+    font-weight: 300;
+    vertical-align: -0.05em;
+  }
+  .skillHeading svg {
+    width: 1.5em;
+    align-self: flex-end;
+    margin-right: 0.5em;
+    margin-bottom: 0.2em;
+  }
+
+  /* 追記 */
+  .additional {
+    margin-top: clamp(4em, 10vw, 8em);
+    padding: clamp(2em, 4.6vw, 3em);
+    background-color: var(--lightGray);
+    font-size: 14px;
+  }
+  .additional h3 {
+    font-size: 1.2em;
+    font-weight: 400;
+  }
+  .additional h3:not(:first-child) {
+    margin-top: 1em;
+  }
+  .additional ul {
+    margin-top: 1em;
+    padding-left: 1.5em;
+    line-height: 1.4;
+  }
+  .additional li + li {
+    margin-top: 0.5em;
+  }
+  .additional ::marker {
+    color: var(--logoMidColor);
+  }
+  .additional a {
+    text-decoration: underline;
+    text-decoration-color: #aaa;
+  }
+}

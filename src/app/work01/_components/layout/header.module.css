@@ -1,0 +1,75 @@
+@layer work.component {
+	.header {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		width: 100%;
+		height: var(--header-height-mobile);
+		display: grid;
+		align-items: center;
+	}
+	@media (min-width: 768px) {
+		.header {
+			height: var(--header-height-desktop);
+		}
+	}
+
+	.menu ul {
+		font-size: var(--fontSize-14-16);
+		text-shadow: 0 0 20px #ffffff, 0 0 15px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff;
+	}
+	@media (max-width: 374px) {
+		.menu ul {
+			font-size: var(--fontSize-12);
+		}
+	}
+}
+
+@layer work.decoration {
+	.header::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		backdrop-filter: blur(3px);
+		mask-image: url(/work01/mask.png);
+		mask-repeat: repeat-x;
+		mask-position: 0% 100%;
+	}
+}
+
+@layer work.layout {
+	/* コンテナのスタイル */
+	.containerWide {
+		max-width: var(--container-wide);
+		margin-inline: auto;
+		padding-inline: var(--container-wide-padding);
+		box-sizing: content-box;
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-10-36);
+	}
+
+	@media (min-width: 768px) {
+		.containerWide {
+			justify-content: space-between;
+			flex-direction: row;
+			align-items: center;
+		}
+	}
+
+	/* メニューの配置 */
+	.menu {
+		display: flex;
+		gap: var(--spacing-20-36);
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	.menu ul {
+		display: flex;
+		gap: var(--spacing-20-36);
+		align-items: center;
+	}
+}

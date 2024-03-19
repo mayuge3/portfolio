@@ -1,0 +1,102 @@
+@layer work.component {
+	.footer {
+		padding-bottom: var(--spacing-112);
+	}
+
+	.footerMenu * {
+		font-size: var(--fontSize-16);
+	}
+	.footerMenu h3 {
+		color: var(--gray-dark);
+		font-weight: 500;
+	}
+
+	.footerInfo {
+		font-size: var(--fontSize-12);
+	}
+}
+
+@layer work.layout {
+	/* コンテナのスタイル */
+	.container {
+		max-width: var(--container);
+		margin-inline: auto;
+		padding-inline: var(--container-padding);
+		box-sizing: content-box;
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-72-90);
+	}
+
+	/* フッターメニューのレイアウト */
+	.footerMenu {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		column-gap: 10px;
+		row-gap: var(--spacing-45);
+	}
+
+	.footerMenu > * {
+		grid-column: span 2;
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-24);
+	}
+
+	.footerMenu > *:last-child {
+		grid-column: span 3;
+	}
+
+	.footerMenu ul {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-7);
+	}
+
+	@media (min-width: 768px) {
+		.footerMenu {
+			grid-template-columns: repeat(12, 1fr);
+			column-gap: 16px;
+		}
+
+		.footerMenu > * {
+			grid-column: span 3;
+		}
+	}
+
+	/* フッター情報のレイアウト */
+	.footerInfo {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-30);
+	}
+
+	.footerInfoMain {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-14);
+	}
+
+	.footerInfoSub {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-20);
+	}
+
+	.footerInfoSub ul {
+		display: flex;
+		gap: var(--spacing-20-28);
+	}
+
+	@media (min-width: 768px) {
+		.footerInfo {
+			justify-content: space-between;
+			flex-direction: row;
+			align-items: center;
+		}
+
+		.footerInfo > :last-child {
+			text-align: right;
+		}
+	}
+}

@@ -1,0 +1,46 @@
+@layer work.component {
+  @layer {
+    /* 👆ボタンのスタイルは外部から composes するため、work.component.base レイヤーで work.component より詳細度を下げています */
+
+    /* ボタンの基本スタイル */
+    .button {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      justify-self: flex-start;
+      width: fit-content;
+      min-width: 264px;
+      padding: 15px;
+      background-color: var(--primary);
+      border: 2px solid #ffffff;
+      box-shadow: var(--shadow);
+      border-radius: 4px;
+      font-size: 18px;
+      font-weight: 500;
+      -webkit-tap-highlight-color: transparent;
+      transition: background-color 0.3s ease-in-out;
+    }
+    .button:hover {
+      opacity: 1;
+      background-color: var(--primary-high);
+    }
+
+    /* ボタンのアクセントカラーのスタイル */
+    .buttonAccent {
+      composes: button;
+      gap: 10px;
+      width: 100%;
+      min-width: 0;
+      padding: 24px 12px;
+      background-color: var(--accent);
+      border: none;
+      color: var(--white);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .buttonAccent:hover {
+      background-color: var(--accent-high);
+    }
+  }
+}
