@@ -1,6 +1,10 @@
 import React from 'react'
 import type Stripe from 'stripe'
 
+import type { Metadata } from 'next'
+import type { OverwriteMetadataProps } from '@/lib/overwrite-metadata'
+import { OverwriteMetadata } from '@/lib/overwrite-metadata'
+
 import ItemPhoto from '@/app/work01/_components/elements/itemPhoto'
 import Card from '@/app/work01/_components/elements/card'
 import { Icon } from '@/app/work01/_components/elements/icon'
@@ -128,4 +132,29 @@ export async function generateStaticParams() {
       slug: item.metadata.slug,
     }
   })
+}
+
+// Dynamic Metadata
+export async function generateMetadata({
+  params,
+}: Work01ItemProps): Promise<Metadata> {
+  const products = await getAllProducts()
+  if (products === undefined) {
+    return {}
+  }
+
+  const product = products?.find((item) => item.metadata.slug === params.slug)
+  if (product === undefined) {
+    return {}
+  }
+
+  const { name, description, images } = product
+  const pageMeta: OverwriteMetadataProps = {
+    pageTitle: `VEG - ${name}`,
+    pageDesc: `${name}の商品ページ`,
+    pagePath: `/work01/${params.slug}`,
+    pageImg: images[0],
+  }
+
+  return OverwriteMetadata(pageMeta)
 }

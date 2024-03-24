@@ -1,3 +1,8 @@
+import type { Metadata } from 'next'
+import type { OverwriteMetadataProps } from '@/lib/overwrite-metadata'
+import { OverwriteMetadata } from '@/lib/overwrite-metadata'
+import opengraphImg from '@/work01/_assets/opengraph-image.jpg'
+
 import React from 'react'
 import Header from '@/app/work01/_components/layout/header'
 import Footer from '@/app/work01/_components/layout/footer'
@@ -35,3 +40,13 @@ const fontAwesomeLicense = (
     }}
   />
 )
+
+// Metadata
+const pageMeta: OverwriteMetadataProps = {
+  pageTitle: 'VEG',
+  pageDesc: 'フレッシュ野菜のガイド＆ショッピングサイト',
+  pagePath: '/work01',
+  pageImg: opengraphImg,
+}
+
+export const metadata: Metadata = OverwriteMetadata(pageMeta)

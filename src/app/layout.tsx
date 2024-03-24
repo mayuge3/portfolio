@@ -1,3 +1,10 @@
+import type { Metadata } from 'next'
+import {
+  sharedMetadata,
+  sharedOpenGraphMetadata,
+  sharedTwitterMetadata,
+} from '@/lib/shared-metadata'
+
 import '@/app/globals.css'
 import { noto, code, josefin } from '@/app/fonts'
 
@@ -14,4 +21,14 @@ export default function RootLayout({
       </body>
     </html>
   )
+}
+
+export const metadata: Metadata = {
+  ...sharedMetadata,
+  openGraph: {
+    ...sharedOpenGraphMetadata,
+  },
+  twitter: {
+    ...sharedTwitterMetadata,
+  },
 }

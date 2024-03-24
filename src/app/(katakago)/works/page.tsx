@@ -1,3 +1,7 @@
+import type { Metadata } from 'next'
+import type { OverwriteMetadataProps } from '@/lib/overwrite-metadata'
+import { OverwriteMetadata } from '@/lib/overwrite-metadata'
+
 import Container from '@/katakago/_components/layout/container'
 import Link from 'next/link'
 import { Icon } from '@/katakago/_components/elements/icon'
@@ -353,3 +357,12 @@ export default function Works() {
     </>
   )
 }
+
+// Metadata
+const pageMeta: OverwriteMetadataProps = {
+  pageTitle: '制作事例とサイト構成',
+  pageDesc: '制作事例とサイト構成を掲載',
+  pagePath: '/works',
+}
+
+export const metadata: Metadata = OverwriteMetadata(pageMeta)
