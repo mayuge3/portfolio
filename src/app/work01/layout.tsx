@@ -8,6 +8,7 @@ import Header from '@/app/work01/_components/layout/header'
 import Footer from '@/app/work01/_components/layout/footer'
 import LinkToKataKago from '@/katakago/_components/elements/linkToKataKago'
 import ShopCartProvider from '@/app/work01/_components/shopCartProvider'
+import Providers from './_components/provider'
 
 import '@/work01/_styles/work01-global.css'
 
@@ -18,11 +19,13 @@ type Work01LayoutProps = {
 export default function Work01Layout({ children }: Work01LayoutProps) {
   return (
     <>
-      <ShopCartProvider>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </ShopCartProvider>
+      <Providers>
+        <ShopCartProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </ShopCartProvider>
+      </Providers>
 
       <LinkToKataKago />
 

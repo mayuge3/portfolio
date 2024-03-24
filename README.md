@@ -48,6 +48,6 @@ src
 
 ## MEMO
 
-- Metaデータの設定はまだ
+- Docker コンテナ化して Google Cloud Run にて運用中
 
 

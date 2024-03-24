@@ -8,8 +8,15 @@ export default function Work01SuccessContent() {
   const { clearCart } = useShoppingCart()
 
   // このページにアクセスしたらカートを空にする処理を実行
+  // ※ production で clearCart が機能しないのを回避するため、一時的に setTimeout を使用
+  // https://github.com/dayhaysoos/use-shopping-cart/issues/340
+  //
   useEffect(() => {
-    clearCart()
+    if (process.env.NODE_ENV === 'production') {
+      setTimeout(clearCart, 0)
+    } else {
+      clearCart()
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

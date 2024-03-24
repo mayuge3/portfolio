@@ -1,6 +1,6 @@
 # for Cloud Run
 
-FROM node:18-slim AS builder
+FROM node:20-slim AS builder
  
 WORKDIR /app
 COPY package.json ./
@@ -9,7 +9,7 @@ RUN yarn install --frozen-lockfile --production=false
 COPY . .
 RUN yarn build
  
-FROM node:18-slim AS runner
+FROM node:20-slim AS runner
 ENV NODE_ENV=production
  
 WORKDIR /app

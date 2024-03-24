@@ -24,7 +24,7 @@ export default function Hero() {
         sizes="(max-width: 767px) 767px, 100vw"
         priority
         className={`${imageHasLoaded ? 'opacity1' : 'opacity0'}`}
-        onLoadingComplete={doFadeIn}
+        onLoad={doFadeIn}
       />
       <div className={styles.text}>
         <div className={styles.container}>
