@@ -43,7 +43,7 @@ export default function Card({
             sizes={sizes}
             alt={alt}
             className={`${imageHasLoaded ? 'opacity1' : 'opacity0'}`}
-            onLoadingComplete={doFadeIn}
+            onLoad={doFadeIn}
           />
         </figure>
         <div className={styles.text}>

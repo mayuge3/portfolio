@@ -4,11 +4,12 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "files.stripe.com",
+        protocol: 'https',
+        hostname: 'files.stripe.com',
       },
     ],
   },
+  output: 'standalone',
 }
 
 module.exports = nextConfig

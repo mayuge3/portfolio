@@ -1,11 +1,11 @@
-"use client"
+'use client'
 // next/image で画像のロードが完了したらフェードインで表示する
 
-import { useState } from "react"
-import Image, { ImageProps } from "next/image"
-import styles from "./photo.module.css"
+import { useState } from 'react'
+import Image, { ImageProps } from 'next/image'
+import styles from './photo.module.css'
 
-export default function Photo({ src, alt = "", ...rest }: ImageProps) {
+export default function Photo({ src, alt = '', ...rest }: ImageProps) {
   const doFadeIn = () => {
     setImageHasLoaded(true)
   }
@@ -15,8 +15,8 @@ export default function Photo({ src, alt = "", ...rest }: ImageProps) {
     <div className={styles.photo}>
       <Image
         src={src}
-        className={`${imageHasLoaded ? "opacity1" : "opacity0"}`}
-        onLoadingComplete={doFadeIn}
+        className={`${imageHasLoaded ? 'opacity1' : 'opacity0'}`}
+        onLoad={doFadeIn}
         alt={alt}
         {...rest}
       />

@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import { useState } from "react"
-import Image, { StaticImageData } from "next/image"
-import styles from "./itemPhoto.module.css"
+import { useState } from 'react'
+import Image, { StaticImageData } from 'next/image'
+import styles from './itemPhoto.module.css'
 
 type ItemPhotoProps = {
   img: StaticImageData
@@ -21,8 +21,8 @@ export default function ItemPhoto({ img }: ItemPhotoProps) {
         alt=""
         sizes="(min-width:768px) 1088px, 100vw"
         priority
-        className={`${imageHasLoaded ? "opacity1" : "opacity0"}`}
-        onLoadingComplete={doFadeIn}
+        className={`${imageHasLoaded ? 'opacity1' : 'opacity0'}`}
+        onLoad={doFadeIn}
       />
     </figure>
   )
