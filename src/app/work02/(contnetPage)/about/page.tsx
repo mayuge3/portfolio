@@ -1,4 +1,6 @@
-import { StaticImageData } from 'next/image'
+import type { Metadata } from 'next'
+import type { OverwriteMetadataProps } from '@/lib/overwrite-metadata'
+import { OverwriteMetadata } from '@/lib/overwrite-metadata'
 
 import Entry from '@/work02/_components/contentPage/entry'
 import Photos, { PhotoItem } from '@/work02/_components/contentPage/photos'
@@ -44,3 +46,13 @@ export default function Work02About() {
     </Entry>
   )
 }
+
+// Metadata
+const pageMeta: OverwriteMetadataProps = {
+  pageTitle: 'LIGHT - 照明のデザインから施工まで',
+  pageDesc: '照明のデザイン・施工について',
+  pagePath: '/work02/about',
+  pageImg: eyecatch,
+}
+
+export const metadata: Metadata = OverwriteMetadata(pageMeta)

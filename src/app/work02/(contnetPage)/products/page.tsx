@@ -1,3 +1,7 @@
+import type { Metadata } from 'next'
+import type { OverwriteMetadataProps } from '@/lib/overwrite-metadata'
+import { OverwriteMetadata } from '@/lib/overwrite-metadata'
+
 import Entry from '@/work02/_components/contentPage/entry'
 import Photos from '@/work02/_components/contentPage/photos'
 import MoreLink from '@/work02/_components/elements/moreLink'
@@ -41,3 +45,13 @@ export default function Work02Products() {
     </Entry>
   )
 }
+
+// Metadata
+const pageMeta: OverwriteMetadataProps = {
+  pageTitle: 'LIGHT - 暮らしを彩る手作りの照明',
+  pageDesc: 'ハンドメイドのオリジナル照明について',
+  pagePath: '/work02/products',
+  pageImg: eyecatch,
+}
+
+export const metadata: Metadata = OverwriteMetadata(pageMeta)
