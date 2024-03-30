@@ -421,3 +421,21 @@
     text-decoration-color: #aaa;
   }
 }
+
+/* 見出し シンプル */
+.simpleH3 {
+  margin-top: 1em;
+}
+.simpleH3 + * {
+  margin-top: 0.5em;
+}
+
+/* ボタン */
+.button {
+  composes: button from '@/katakago/_styles/layout.module.css';
+  width: auto;
+  max-width: none;
+  padding-inline: 1em;
+  padding-block: 2em;
+  line-height: 1.4;
+}

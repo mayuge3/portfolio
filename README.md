@@ -24,6 +24,7 @@ src
 │   │   ├── _assets
 │   │   ├── _components
 │   │   ├── _styles
+│   │   ├── creations
 │   │   └── works
 │   ├── work01
 │   │   ├── [slug]

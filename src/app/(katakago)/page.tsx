@@ -128,7 +128,11 @@ export default function Home() {
                 <div className={styles.workTitle}>
                   <div className={styles.workNumber}>99</div>
                   <div>
-                    <h3>制作事例の詳細とこのサイトの構成について</h3>
+                    <h3>
+                      制作事例の詳細と
+                      <wbr />
+                      このサイトの構成について
+                    </h3>
                   </div>
                 </div>
 
