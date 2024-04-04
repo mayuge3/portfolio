@@ -160,11 +160,6 @@ export default function Creations() {
                   制作者プロフィール
                 </h2>
 
-                <div className={styles.name}>
-                  鐙 百合子（Abumi Yuriko）
-                  <span>Contact: yuriko@kata-kago.com</span>
-                </div>
-
                 <p>
                   常に新しい技術を取り入れながら、フリーランスとして
                   Web構築・コーディング・デザインに携わっています。特にCSSを得意としており、メンテナンス性の高いCSS管理、原因がわからないレイアウト崩れへの緊急対応、レスポンシブ実装などに精通しています。
