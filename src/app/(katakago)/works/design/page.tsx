@@ -407,9 +407,9 @@ export default function Works() {
 
 // Metadata
 const pageMeta: OverwriteMetadataProps = {
-  pageTitle: '制作事例とサイト構成',
-  pageDesc: '制作事例とサイト構成を掲載',
-  pagePath: '/works',
+  pageTitle: 'Webデザイン制作事例',
+  pageDesc: 'Webデザインの制作事例を掲載',
+  pagePath: '/works/design',
 }
 
 export const metadata: Metadata = OverwriteMetadata(pageMeta)
