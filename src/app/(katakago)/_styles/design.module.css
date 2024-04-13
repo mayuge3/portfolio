@@ -1,0 +1,41 @@
+.twocols {
+  display: grid;
+  gap: clamp(40px, 6vw, 72px);
+  margin-top: 60px;
+}
+
+@media (min-width: 768px) {
+  .twocols {
+    grid-template-columns: 2.5fr 1fr;
+  }
+}
+
+.twocolsMain > * + * {
+  margin-top: 20px;
+}
+
+.twocolsMain h3 + a {
+  width: auto !important;
+  min-width: 200px;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.twocolsMain h3 + a:has(+ a) {
+  margin-bottom: 10px;
+}
+
+.twocolsMain h3 + a + a {
+  width: auto !important;
+  min-width: 200px;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.twocolsSide figure + figure {
+  margin-top: 20px;
+}
+
+.page {
+  border: solid 1px gray;
+}
